@@ -12,22 +12,67 @@ body {
     line-height: 1.6;
 }
 
-/* Nav */
+/* --- UPDATED MOBILE-RESPONSIVE NAV --- */
 nav {
     background: #1a2a6c;
-    padding: 15px 5%;
+    padding: 1rem 5%;
     display: flex;
+    flex-wrap: wrap;           /* Allows links to drop to a new line on phones */
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-nav .logo { color: white; font-weight: bold; }
-nav ul { display: flex; list-style: none; gap: 15px; }
-nav ul li a { color: white; text-decoration: none; font-size: 0.8rem; }
+nav .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 0;
+}
 
+nav ul {
+    display: flex;
+    flex-wrap: wrap;           /* Allows individual links to wrap */
+    justify-content: center;
+    list-style: none;
+    gap: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    white-space: nowrap;       /* Prevents a single word link from breaking */
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- MOBILE TWEAK --- */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column; /* Stacks logo on top of links on tiny phones */
+        padding: 10px;
+    }
+    
+    nav ul {
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.75rem;     /* Slightly smaller text for phone screens */
+        padding: 5px 8px;
+    }
+}
 /* The Vertical Segments */
 .hero, main {
     display: flex;
